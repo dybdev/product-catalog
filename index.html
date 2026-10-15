@@ -3,90 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Interactive product catalog - Unit 2 Lab Activity">
   <title>TechNest | Product Catalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ===== HEADER + NAVIGATION ===== -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#home" class="logo">Tech<span>Nest</span></a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#products">Products</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-wrapper">
+      <a href="#home" class="logo">TechNest<span>.</span></a>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
 
-    <!-- ===== HOME ===== -->
+    <!-- Home -->
     <section id="home" class="hero">
-      <div class="container hero-content">
-        <h1>Gear up with the latest tech</h1>
-        <p>Browse our hand-picked catalog of laptops, phones, audio gear and accessories. Filter by category to find exactly what you need.</p>
-        <a href="#products" class="btn btn-primary">Shop Now</a>
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <span class="tag">New arrivals 2026</span>
+          <h1>Find the right gadget for school, work and play.</h1>
+          <p>A simple catalog of laptops, phones and accessories. Pick a category to see what's available.</p>
+          <div class="hero-buttons">
+            <a href="#products" class="btn btn-dark">Browse products</a>
+            <a href="#contact" class="btn btn-light">Ask a question</a>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <h3 id="productTotal">0</h3>
+            <p>Products</p>
+          </div>
+          <div class="stat">
+            <h3>3</h3>
+            <p>Categories</p>
+          </div>
+          <div class="stat">
+            <h3>Free</h3>
+            <p>Shipping in Metro Manila</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ===== PRODUCTS ===== -->
+    <!-- Products -->
     <section id="products" class="products">
       <div class="container">
-        <h2 class="section-title">Our Products</h2>
+        <div class="section-head">
+          <div>
+            <h2>Products</h2>
+            <p id="resultCount" class="muted"></p>
+          </div>
 
-        <div class="filter-buttons" role="group" aria-label="Filter products by category">
-          <button type="button" class="filter-btn active" data-category="all">All</button>
-          <button type="button" class="filter-btn" data-category="laptops">Laptops</button>
-          <button type="button" class="filter-btn" data-category="phones">Phones</button>
-          <button type="button" class="filter-btn" data-category="accessories">Accessories</button>
+          <div class="filters">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="laptops">Laptops</button>
+            <button class="filter-btn" data-category="phones">Phones</button>
+            <button class="filter-btn" data-category="accessories">Accessories</button>
+          </div>
         </div>
 
-        <p id="resultCount" class="result-count" aria-live="polite"></p>
-
-        <div id="productGrid" class="product-grid">
-          <!-- Product cards are rendered here by script.js -->
-        </div>
+        <div id="productGrid" class="product-grid"></div>
       </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
+    <!-- Contact -->
     <section id="contact" class="contact">
-      <div class="container">
-        <h2 class="section-title">Contact Us</h2>
-        <p class="section-subtitle">Have a question about a product? Send us a message.</p>
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <h2>Contact us</h2>
+          <p class="muted">Questions about stock, prices or shipping? Send us a message and we'll reply within 24 hours.</p>
+          <ul>
+            <li><strong>Email</strong> support@technest.ph</li>
+            <li><strong>Phone</strong> (02) 8123 4567</li>
+            <li><strong>Store</strong> Quezon City, Philippines</li>
+          </ul>
+        </div>
 
-        <form id="contactForm" class="contact-form" novalidate>
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Juan Dela Cruz">
-          </div>
+        <form id="contactForm" class="form" novalidate>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name">
 
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="juan@example.com">
-          </div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com">
 
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Type your message here..."></textarea>
-          </div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message..."></textarea>
 
-          <button type="submit" class="btn btn-primary">Send Message</button>
+          <button type="submit" class="btn btn-dark">Send message</button>
         </form>
       </div>
     </section>
 
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year">2026</span> TechNest Product Catalog. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-row">
+      <p>&copy; <span id="year">2026</span> TechNest. All rights reserved.</p>
+      <p class="muted">Unit 2 Lab Activity</p>
     </div>
   </footer>
 
